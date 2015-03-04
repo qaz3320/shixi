@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
+<head>
+  {% block css %}
+  <link rel="stylesheet" href="/static/css/zhaopin/style.css">
+  <link rel="stylesheet" href="/static/css/zhaopin/bootstrap.min.css">
+  <title>{{navigation_7.name}}</title>
+  <link href="/static/css/zhaopin/jianli-post_v0.css" rel="stylesheet" />
+
+  <script src="/static/js/tinymce_4.1.7/tinymce/js/tinymce/tinymce.min.js"></script>
+  <script>tinymce.init({selector:'textarea'});</script>
+  {% endblock %}
+</head>
+<body>
+  {% block content %}
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <section>
+    <body class="postFirPage">
+      <div style="height:150px;"></div>
+     <div style="margin-top:0px;border-top: 1.5px dotted #5AA9CE;">
+        <div id="" style=" color: #7c7c7c;">
+          <span style="font-size:40px;background:#ffffff;position: relative;top: -30px;left:42%">发布个人简历</span>
+        </div>
+      </div>
+      <div class="infoContent">
+        <form action="/jltj" method="POST">
+          {%csrf_token%}
+          <div class="perIcon perIcon5" style="display:none"></div>
+          <dl class="">
+            <dt>
+              姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名
+              <b>*</b>
+            </dt>
+            <dd>
+              <input type="text" name="name" value="{{xingming}}"/> 
+           
+          <div class="radio" style=" position: absolute;left: 200px;top: -13px;">
+            <label>
+              <input type="radio" name="xingbie" id="xingbie1" value="男" checked>
+              男
+            </label>
+            <label>
+              <input type="radio" name="xingbie" id="xingbie2" value="女">
+              女
+            </label>
+           </dd>
+           <b style="color:red;">{{a}}</b>
+          </dl>
+          <dl class="jobType ">
+            <dt>
+              专&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业
+              <b>*</b>
+            </dt>
+            <dd class="" style=""><!--class="zIndex999"-->
+              <input type="text" name="zhuanye" value="{{zhuanye}}"/> 
+            </dd>
+            <b style="color:red;">{{b}}</b>
+          </dl>
+          <dl class="expSalary ">
+            <dt>
+              期望薪资
+              <b>*</b>
+            </dt>
+            <dd class="">
+
+              <input type="text" name="xinzi" value="2500-3000"></input>
+
+            </dd>
+            <b style="color:red;">{{c}}</b>
+          </dl>
+          <dl class="nameSex ">
+            <dt>
+              工作地点
+              <b>*</b>
+            </dt>
+            <dd class="">
+              <input type="text" name="didian" value="北京"></input>
+            </dd>
+           <b style="color:red;">{{d}}</b>
+          </dl>
+          <dl class="birTime">
+            <dt>
+              联系方式
+              <b>*</b>
+            </dt>
+            <dd class="">
+              <input type="text" name="lianxi" value="{{lianxi}}"></input>
+            </dd>
+            <b style="color:red;">{{e}}</b>
+          </dl>
+          <dl class="">
+            <dt>
+              学历/年级
+              <b>*</b>
+            </dt>
+            <dd class="">
+              <input type="text" name="nianji" value="{{nianji}}"></input>
+            </dd>
+            <b style="color:red;">{{f}}</b>
+          </dl>
+          <dl class="">
+            <dt class="">
+              自我介绍
+              <b>*</b>
+            </dt>
+            <dd class="">
+              <textarea name= "jieshao"></textarea>
+            </dd>
+            <b style="color:red;padding-left:28%;">{{g}}</b>
+          </dl>
+          <div class="subBtnCon " style="font-color:#7c7c7c;padding-left:30%;">
+          <input class="btn btn-danger" id="btninfo" style="font-size:30px" value="提交信息" type="submit" />
+          </div>
+        </form>
+      </div>
+    </body>
+  </section>
+{% endblock %}
+</body>
+</html>
